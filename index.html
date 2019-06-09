@@ -109,15 +109,15 @@
 			scene.add(ambientlight);
 
 			var mtlLoader = new THREE.MTLLoader();
-			mtlLoader.setResourcePath('/treecard/');
-			mtlLoader.setPath('/treecard/');
+			mtlLoader.setResourcePath('/morwood.world/');
+			mtlLoader.setPath('/morwood.world/');
 			mtlLoader.load('tree.mtl', function (materials) {
  
 				materials.preload();
  
 				var objLoader = new THREE.OBJLoader();
 				objLoader.setMaterials(materials);
-				objLoader.setPath('/treecard/');
+				objLoader.setPath('/morwood.world/');
 				objLoader.load('tree.obj', function (object) {
  
 					scene.add(object);
