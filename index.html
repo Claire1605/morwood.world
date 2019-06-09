@@ -1,0 +1,140 @@
+<html>
+	<head>
+
+	</head>
+
+	<body>
+		<script src="three.min.js"></script>
+		<script src="MTLLoader.js"></script>
+		<script src="OBJLoader.js"></script>
+		<script src="OrbitControls.js"></script>
+
+		<style>
+			body {
+				width: 100wh;
+				height: 90vh;
+				color: #fff;
+				background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+				background-size: 400% 400%;
+				-webkit-animation: Gradient 15s ease infinite;
+				-moz-animation: Gradient 15s ease infinite;
+				animation: Gradient 15s ease infinite;
+			}
+
+			@-webkit-keyframes Gradient {
+				0% {
+					background-position: 0% 50%
+				}
+				50% {
+					background-position: 100% 50%
+				}
+				100% {
+					background-position: 0% 50%
+				}
+			}
+
+			@-moz-keyframes Gradient {
+				0% {
+					background-position: 0% 50%
+				}
+				50% {
+					background-position: 100% 50%
+				}
+				100% {
+					background-position: 0% 50%
+				}
+			}
+
+			@keyframes Gradient {
+				0% {
+					background-position: 0% 50%
+				}
+				50% {
+					background-position: 100% 50%
+				}
+				100% {
+					background-position: 0% 50%
+				}
+			}
+
+			h1,
+			h6 {
+				font-family: 'Open Sans';
+				font-weight: 300;
+				text-align: center;
+				position: absolute;
+				top: 45%;
+				right: 0;
+				left: 0;
+			}
+		</style>
+
+		<script>
+			var scene = new THREE.Scene();
+
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+ 
+			var renderer = new THREE.WebGLRenderer({ alpha : true });
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+			renderer.setClearColor( 0x000000, 0 );
+
+			camera.position.z = 5;
+			camera.position.y = -2;
+ 
+			var controls = new THREE.OrbitControls(camera, renderer.domElement);
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.25;
+			controls.autoRotate = true;
+			controls.autoRotateSpeed = 0.1;
+			controls.enablePan = false;
+			controls.enableZoom = true;
+			controls.maxPolarAngle = Math.PI / 2;
+			controls.minPolarAngle = Math.PI / 2;
+
+			var keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 1.0);
+			keyLight.position.set(-100, 0, 100);
+ 
+			var fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 0.75);
+			fillLight.position.set(100, 0, 100);
+ 
+			var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
+			backLight.position.set(100, 0, -100).normalize();
+ 
+			var ambientlight = new THREE.AmbientLight(0x404060);
+
+			scene.add(keyLight);
+			scene.add(fillLight);
+			scene.add(backLight);
+			scene.add(ambientlight);
+
+			var mtlLoader = new THREE.MTLLoader();
+			mtlLoader.setResourcePath('/treecard/');
+			mtlLoader.setPath('/treecard/');
+			mtlLoader.load('tree.mtl', function (materials) {
+ 
+				materials.preload();
+ 
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials(materials);
+				objLoader.setPath('/treecard/');
+				objLoader.load('tree.obj', function (object) {
+ 
+					scene.add(object);
+				});
+ 
+			});
+
+			var update = function () {
+				requestAnimationFrame( update );
+				
+				controls.update();
+
+				renderer.render(scene, camera);
+			};
+ 
+			update();
+		</script>
+
+	</body>
+</html>
