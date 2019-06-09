@@ -1,7 +1,7 @@
 # Blender MTL File: 'tree.blend'
 # Material Count: 5
 
-newmtl TextureAtlas_0
+newmtl tree
 Ns 0.000000
 Ka 0.600000 0.600000 0.600000
 Kd 0.600000 0.600000 0.600000
@@ -12,7 +12,7 @@ d 1.000000
 illum 2
 map_Kd texture_0.png
 
-newmtl TextureAtlas_1
+newmtl tree.001
 Ns 0.000000
 Ka 0.600000 0.600000 0.600000
 Kd 0.600000 0.600000 0.600000
@@ -23,7 +23,7 @@ d 1.000000
 illum 2
 map_Kd texture_1.png
 
-newmtl TextureAtlas_2
+newmtl tree.002
 Ns 0.000000
 Ka 0.600000 0.600000 0.600000
 Kd 0.600000 0.600000 0.600000
@@ -34,18 +34,7 @@ d 1.000000
 illum 2
 map_Kd texture_2.png
 
-newmtl TextureAtlas_3
-Ns 0.000000
-Ka 0.600000 0.600000 0.600000
-Kd 0.600000 0.600000 0.600000
-Ks 0.000000 0.000000 0.000000
-Ke 0.000000 0.000000 0.000000
-Ni 1.000000
-d 1.000000
-illum 2
-map_Kd texture_3.png
-
-newmtl TextureAtlas_4
+newmtl tree.003
 Ns 0.000000
 Ka 0.600000 0.600000 0.600000
 Kd 0.600000 0.600000 0.600000
@@ -55,3 +44,14 @@ Ni 1.000000
 d 1.000000
 illum 2
 map_Kd texture_4.png
+
+newmtl tree.004
+Ns 0.000000
+Ka 0.600000 0.600000 0.600000
+Kd 0.600000 0.600000 0.600000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd texture_3.png
