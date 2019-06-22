@@ -354,7 +354,7 @@ stop-opacity: 0.5;}
 			document.getElementById("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
-			camera.position.z = -0.6;
+			camera.position.z = -0.55;
  
 			var controls = new THREE.OrbitControls(camera, renderer.domElement);
 			controls.enableDamping = true;
@@ -395,7 +395,7 @@ stop-opacity: 0.5;}
 				objLoader.setMaterials(materials);
 				objLoader.setPath('/');
 				objLoader.load('tree.obj', function (object) {
-					object.position.y = -0.35;
+					object.position.y = -0.25;
 					scene.add(object);
 				});
  
