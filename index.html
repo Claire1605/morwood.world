@@ -234,19 +234,19 @@ stop-opacity: 1;
     transition: all 1s ease-out;
   }
   
-.morwood:hover .gradientBG1 { 
+.morwood.expand .gradientBG1 { 
 stop-opacity: 0.5; }
 
-.morwood:hover .gradientBG2 { 
+.morwood.expand .gradientBG2 { 
 stop-opacity: 0.5;}
   
-.morwood:hover .moveM { transform: translateX(-150px); stroke: white;  stroke-width: 5; }
-.morwood:hover .moveO1 { transform: translateX(-100px); stroke: white;  stroke-width: 5; }
-.morwood:hover .moveR { transform: translateX(-50px); stroke: white;  stroke-width: 5; }
-.morwood:hover .moveW { transform: translateX(0px); stroke: white;  stroke-width: 5; }
-.morwood:hover .moveO2 { transform: translateX(50px); stroke: white;  stroke-width: 5; }
-.morwood:hover .moveO3 { transform: translateX(100px); stroke: white;  stroke-width: 5; }
-.morwood:hover .moveD { transform: translateX(150px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveM { transform: translateX(-150px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveO1 { transform: translateX(-100px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveR { transform: translateX(-50px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveW { transform: translateX(0px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveO2 { transform: translateX(50px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveO3 { transform: translateX(100px); stroke: white;  stroke-width: 5; }
+.morwood.expand .moveD { transform: translateX(150px); stroke: white;  stroke-width: 5; }
 
 
 .morwood .moveMbg { transform: translateX(0px); fill: transparent; stroke: transparent;
@@ -264,13 +264,13 @@ stop-opacity: 0.5;}
 .morwood .moveDbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
     transition: all 1s ease-out; }
 
-.morwood:hover .moveMbg { transform: translateX(-150px); fill:transparent; }
-.morwood:hover .moveO1bg { transform: translateX(-100px); fill:transparent; }
-.morwood:hover .moveRbg { transform: translateX(-50px); fill:transparent; }
-.morwood:hover .moveWbg { transform: translateX(0px); fill:transparent; }
-.morwood:hover .moveO2bg { transform: translateX(50px); fill:transparent; }
-.morwood:hover .moveO3bg { transform: translateX(100px); fill:transparent; }
-.morwood:hover .moveDbg { transform: translateX(150px); fill:transparent; }
+.morwood.expand .moveMbg { transform: translateX(-150px); fill:transparent; }
+.morwood.expand .moveO1bg { transform: translateX(-100px); fill:transparent; }
+.morwood.expand .moveRbg { transform: translateX(-50px); fill:transparent; }
+.morwood.expand .moveWbg { transform: translateX(0px); fill:transparent; }
+.morwood.expand .moveO2bg { transform: translateX(50px); fill:transparent; }
+.morwood.expand .moveO3bg { transform: translateX(100px); fill:transparent; }
+.morwood.expand .moveDbg { transform: translateX(150px); fill:transparent; }
 
 	#card{
 		z-index: 100;
@@ -368,7 +368,7 @@ stop-opacity: 0.5;}
 	
 	
 	<div class="morwoodLogo">
-	<svg class="morwood" width="750" height="150" >
+	<svg id="morwoodLogoID" class="morwood" width="750" height="150" >
 
 <linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop class="gradientBG1" offset="0%" stop-color="pink" >
@@ -522,18 +522,19 @@ stop-opacity: 0.5;}
 			rightPage.setAttribute('class', 'open');
 			
 			styleLeft = document.createElement('style');
-			styleLeft.appendChild(document.createTextNode('#card:hover #leftPage { transform: rotateY(-160deg); background-color: #add8e6;} '));
+			styleLeft.appendChild(document.createTextNode('#card:hover #leftPage { transform: rotateY(-130deg); background-color: #add8e6;} '));
 			styleLeft.setAttribute('id', 'overrideHoverLeft');
 			document.body.appendChild(styleLeft);
 			
 			styleRight = document.createElement('style');
-			styleRight.appendChild(document.createTextNode('#card:hover #rightPage { transform: rotateY(160deg); background-color: #add8e6;}'));
+			styleRight.appendChild(document.createTextNode('#card:hover #rightPage { transform: rotateY(130deg); background-color: #add8e6;}'));
 			styleRight.setAttribute('id', 'overrideHoverRight');
 			document.body.appendChild(styleRight);
 			
 			document.getElementById('greenBgrd').setAttribute('class', 'fadeIn');
 			document.getElementById('mainTextBlock').setAttribute('class', 'fadeIn');
 			document.getElementById('siteLink').setAttribute('class', 'fadeIn');
+			document.getElementById('morwoodLogoID').setAttribute('class', 'morwood expand');
 			
 		}
 		
@@ -554,6 +555,7 @@ stop-opacity: 0.5;}
 			if (rightOpen == false)
 			{
 			document.getElementById('greenBgrd').setAttribute('class', '');
+			document.getElementById('morwoodLogoID').setAttribute('class', 'morwood');
 			}
 		}
 	});
@@ -569,6 +571,7 @@ stop-opacity: 0.5;}
 			if (leftOpen == false)
 			{
 			document.getElementById('greenBgrd').setAttribute('class', '');
+			document.getElementById('morwoodLogoID').setAttribute('class', 'morwood');
 			}
 		}
 	});
