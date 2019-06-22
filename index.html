@@ -81,14 +81,19 @@
 				width: 600px;
 				height: 400px;
 			}
+			
+			.mainText{
+				text-align: center;
+				width: 100%;
+			}
 		</style>
 
 		<div style="display: inline;">
-	<h3 class="logoBlog">CLAIRE & JAMES</h3>
-	<br>
-	<h3 class="logoBlog">MORLEY   WOOD</h3>
+		<br><br>
+	<h3 class="mainText">CLAIRE   &   JAMES</h3>
+	<h3 class="mainText">MORLEY        WOOD</h3>
 	<br><br>
-	<h3 class="logoBlog">MORWOOD</h3>
+	<h3 class="mainText">MORWOOD</h3>
 	</div>
 	<br><br>
 		
@@ -97,13 +102,13 @@
 
 	<br><br>
 	<div style="display: inline;">
-	<h3 class="logoBlog">05/05/2020</h3>
+	<h3 class="mainText">05/05/2020</h3>
 	<br>
-	<h3 class="logoBlog">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</h3>
+	<h3 class="mainText">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</h3>
 	<br><br>
-	<h3 class="logoBlog">More information and</h3>
+	<h3 class="mainText">More information and</h3>
 	<br>
-	<h3 class="logoBlog">RSVP here</h3>
+	<h3 class="mainText">RSVP here</h3>
 	</div>
 	
 		<script>
@@ -113,7 +118,7 @@
  
 			var renderer = new THREE.WebGLRenderer({ alpha : true });
 			renderer.setSize( 600, 400 );
-			document.getElementByID("tree").appendChild( renderer.domElement );
+			document.getElementById("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
 			camera.position.z = 5;
