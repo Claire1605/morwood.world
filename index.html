@@ -24,8 +24,7 @@
 				height: 90vh;
 				color: #fff;
 				background-color: #552f91;
-				<!--font-family: 'Calligraffitti', cursive;-->
-				font-family: 'Courgette', cursive;
+				font-family: 'Calligraffitti', cursive;
 			}
 
 			@-webkit-keyframes Gradient {
@@ -89,16 +88,24 @@
 			}
 			
 			.mainText{
-				<!--font-family: 'Calligraffitti', cursive;-->
-				font-family: 'Courgette', cursive;
 				text-align: center;
+				font-size: 32px;
 				width: 100%;
 			}
 			
 			.starryBgrd {
 				background-repeat: repeat;
-				background-image: url('PlaceholderStars.jpg');
+				background-image: url('Stars01.jpg');
+				animation-name: stars;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
 			}   
+			
+			@keyframes stars {
+				0%   {background-image: url('Stars01.jpg');}
+				50%  {background-image: url('Stars02.jpg');}
+				100%   {background-image: url('Stars01.jpg');}
+}
 		</style>
 
 	<div style="display: inline;">
