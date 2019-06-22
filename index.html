@@ -1,24 +1,31 @@
 <html>
 	<head>
-
+		<meta charset="utf-8">
+		<title>morwood.world</title>
+		<meta name="description" content="morwood.world">
+		<meta name="keywords" content="morwood">
+		<meta name="author" content="Claire and James Morwood">
+		<meta name="viewport" content="width=520">
+		
+		<link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet">
 	</head>
 
-	<body>
+	<body class="starryBgrd">
 		<script src="three.min.js"></script>
 		<script src="MTLLoader.js"></script>
 		<script src="OBJLoader.js"></script>
 		<script src="OrbitControls.js"></script>
-
+		
+		
 		<style>
 			body {
 				width: 100wh;
-				height: 90vh;
+				height: 100vh;
 				color: #fff;
-				background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-				background-size: 400% 400%;
-				-webkit-animation: Gradient 15s ease infinite;
-				-moz-animation: Gradient 15s ease infinite;
-				animation: Gradient 15s ease infinite;
+				background-color: #552f91;
+				font-family: 'Calligraffitti', cursive;
+				min-width: 750px;
 			}
 
 			@-webkit-keyframes Gradient {
@@ -57,9 +64,8 @@
 				}
 			}
 
-			h1,
+			h1, h3
 			h6 {
-				font-family: 'Open Sans';
 				font-weight: 300;
 				text-align: center;
 				position: absolute;
@@ -67,16 +73,211 @@
 				right: 0;
 				left: 0;
 			}
+			
+			.treeBox {
+				margin: auto;
+				border: 3px solid #73AD21;
+				padding: 10px;
+				width: 400px;
+				height: 400px;
+				
+				background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+				background-size: 400% 400%;
+				-webkit-animation: Gradient 15s ease infinite;
+				-moz-animation: Gradient 15s ease infinite;
+				animation: Gradient 15s ease infinite;
+			}
+			
+			.mainText{
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+			
+			.morwoodLogo{
+				
+				width: 100%;
+				margin: auto;
+			}
+			
+			a:link {
+				color: white;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+
+			a:visited {
+				color: white;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+
+			a:hover {
+				color: hotpink;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+
+			a:active {
+				color: turquoise;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+			
+			.starryBgrd {
+				background-repeat: repeat;
+				background-image: url('Stars01.jpg');
+				animation-name: stars;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
+			}   
+			
+			@keyframes stars {
+				0%   {background-image: url('Stars01.jpg');}
+				50%  {background-image: url('Stars02.jpg');}
+				100%   {background-image: url('Stars01.jpg');}
+			}
+			
+			
+.morwood { fill: transparent; stroke: white; stroke-width: 5; position: relative; left: 50%; transform: translateX(-50%);}
+
+.morwood .moveM { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveO1 { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveR { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveW { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveO2 { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveO3 { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveD { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+
+.morwood .gradient {
+  stroke: transparent;
+  fill: url("#gradientBackground");
+  clip-path: url("#clipGroup");
+  }
+  
+.morwood .gradientBG1 {
+stop-opacity: 1;
+    transition: all 1s ease-out;
+  }
+
+.morwood .gradientBG2 {
+stop-opacity: 1;
+    transition: all 1s ease-out;
+  }
+  
+.morwood:hover .gradientBG1 { 
+stop-opacity: 0.5; }
+
+.morwood:hover .gradientBG2 { 
+stop-opacity: 0.5;}
+  
+.morwood:hover .moveM { transform: translateX(-150px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveO1 { transform: translateX(-100px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveR { transform: translateX(-50px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveW { transform: translateX(0px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveO2 { transform: translateX(50px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveO3 { transform: translateX(100px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveD { transform: translateX(150px); stroke: white;  stroke-width: 5; }
+
+
+.morwood .moveMbg { transform: translateX(0px); fill: transparent; stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveO1bg { transform: translateX(0px); fill: transparent; stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveRbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveWbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveO2bg { transform: translateX(0px); fill: transparent;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveO3bg { transform: translateX(0px); fill: transparent;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveDbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
+    transition: all 1s ease-out; }
+
+.morwood:hover .moveMbg { transform: translateX(-150px); fill:transparent; }
+.morwood:hover .moveO1bg { transform: translateX(-100px); fill:transparent; }
+.morwood:hover .moveRbg { transform: translateX(-50px); fill:transparent; }
+.morwood:hover .moveWbg { transform: translateX(0px); fill:transparent; }
+.morwood:hover .moveO2bg { transform: translateX(50px); fill:transparent; }
+.morwood:hover .moveO3bg { transform: translateX(100px); fill:transparent; }
+.morwood:hover .moveDbg { transform: translateX(150px); fill:transparent; }
 		</style>
 
+	<div style="display: inline;">
+	<br><br>
+	<h3 class="mainText">CLAIRE MORLEY</h3>
+	<h3 class="mainText">& </h3>
+	<h3 class="mainText">JAMES WOOD</h3>
+	<div class="morwoodLogo">
+	<svg class="morwood" width="750" height="150" >
+
+<linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop class="gradientBG1" offset="0%" stop-color="pink" >
+      <animate attributeName="stop-color" values="pink;red;pink" dur="2s" repeatCount="indefinite"  /> 
+      </stop>
+      <stop class="gradientBG2" offset="100%" stop-color="blue" >
+      <animate attributeName="stop-color" values="blue;cyan;blue" dur="2s" repeatCount="indefinite"  /> 
+      </stop>
+</linearGradient>
+    
+<rect x="0" y="0" width="750" height="150" class="gradient"></rect>
+
+<clipPath id="clipGroup">
+<path class="moveMbg" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
+<path class="moveO1bg" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveRbg" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
+<path class="moveWbg" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
+<path class="moveO2bg" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveO3bg" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveDbg" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+</clipPath>
+
+<path class="moveM" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
+<path class="moveO1" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveR" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
+<path class="moveW" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
+<path class="moveO2" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveO3" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveD" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+
+
+</svg>
+</div>
+	</div>
+	<br><br>
+		
+	<div id="tree" class="treeBox">
+	</div>	
+
+	<br>
+	<div style="display: inline;">
+	<h3 class="mainText">05/05/2020</h3>
+	<h3 class="mainText"><a href="http://www.woodlandtipis.co.uk/" target="_blank">The Enchanted Forest (Woodland Tipis and Yurts HR2 6QD)</a></h3>
+	<h3 class="mainText">More information and</h3>
+	<h3 class="mainText">RSVP here</h3>
+	<br><br><br>
+	</div>
+	
 		<script>
 			var scene = new THREE.Scene();
 
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
  
 			var renderer = new THREE.WebGLRenderer({ alpha : true });
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+			renderer.setSize( 400, 400 );
+			document.getElementById("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
 			camera.position.z = 5;
