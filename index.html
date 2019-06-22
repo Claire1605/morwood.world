@@ -22,7 +22,8 @@
 			body {
 				width: 100wh;
 				height: 90vh;
-				color: #552f91;
+				color: #fff;
+				background-color: #552f91;
 			}
 
 			@-webkit-keyframes Gradient {
@@ -77,7 +78,7 @@
 				border: 3px solid #73AD21;
 				padding: 10px;
 				width: 600px;
-				height: 400px;
+				height: 600px;
 				
 				background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 				background-size: 400% 400%;
@@ -111,10 +112,11 @@
 	<h3 class="mainText">05/05/2020</h3>
 	<br>
 	<h3 class="mainText">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</h3>
-	<br><br>
+	<br>
 	<h3 class="mainText">More information and</h3>
 	<br>
 	<h3 class="mainText">RSVP here</h3>
+	<br><br><br>
 	</div>
 	
 		<script>
@@ -123,7 +125,7 @@
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
  
 			var renderer = new THREE.WebGLRenderer({ alpha : true });
-			renderer.setSize( 600, 400 );
+			renderer.setSize( 600, 600 );
 			document.getElementById("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
