@@ -354,8 +354,8 @@ stop-opacity: 0.5;}
 			document.getElementById("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
-			camera.position.z = 0.25;
-			camera.position.y = -2;
+			camera.position.z = -0.5;
+			camera.position.y = -0.25;
  
 			var controls = new THREE.OrbitControls(camera, renderer.domElement);
 			controls.enableDamping = true;
@@ -414,6 +414,9 @@ stop-opacity: 0.5;}
 		</script>
 
 		<script>
+		var leftOpen = false;
+		var rightOpen = false;
+		var justClicked = false;
 		(function() {
   function $(id) {
     return document.getElementById(id);
@@ -424,13 +427,50 @@ stop-opacity: 0.5;}
       rightPage = $('rightPage');
 	  
   card.addEventListener('click', function () {
-    leftPage.setAttribute('class', 'open');
-	rightPage.setAttribute('class', 'open');
-	style = document.createElement('style');
-	style.appendChild(document.createTextNode('#card:hover #leftPage { transform: rotateY(-160deg); background-color: #add8e6;} #card:hover #rightPage { transform: rotateY(160deg); background-color: #add8e6;}'));
-	document.body.appendChild(style);
+		if (leftOpen == false && rightOpen == false && justClicked == false)
+		{
+			leftOpen = true;
+			rightOpen = true;
+			
+			leftPage.setAttribute('class', 'open');
+			rightPage.setAttribute('class', 'open');
+			
+			styleLeft = document.createElement('style');
+			styleLeft.appendChild(document.createTextNode('#card:hover #leftPage { transform: rotateY(-160deg); background-color: #add8e6;} '));
+			styleLeft.setAttribute('id', 'overrideHoverLeft');
+			document.body.appendChild(styleLeft);
+			
+			styleRight = document.createElement('style');
+			styleRight.appendChild(document.createTextNode('#card:hover #rightPage { transform: rotateY(160deg); background-color: #add8e6;}'));
+			styleRight.setAttribute('id', 'overrideHoverRight');
+			document.body.appendChild(styleRight);
+		}
+		
+		if (justClicked == true)
+		{
+			justClicked = false;
+		}
+	});
+	
+  leftPage.addEventListener('click', function () {
+		if (leftOpen == true)
+		{
+			justClicked = true;
+			leftOpen = false;
+			leftPage.setAttribute('class', '');
+			document.getElementById('overrideHoverLeft').remove();
+		}
 	});
 
+  rightPage.addEventListener('click', function () {
+		if (rightOpen == true)
+		{
+			justClicked = true;
+			rightOpen = false;
+			rightPage.setAttribute('class', '');
+			document.getElementById('overrideHoverRight').remove();
+		}
+	});
 }());
 </script>
 	</body>
