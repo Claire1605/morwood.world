@@ -354,8 +354,8 @@ stop-opacity: 0.5;}
 			document.getElementById("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
-			camera.position.z = 1;
-			camera.position.y = 0.5;
+			camera.position.z = 0.25;
+			camera.position.y = -2;
  
 			var controls = new THREE.OrbitControls(camera, renderer.domElement);
 			controls.enableDamping = true;
@@ -364,7 +364,8 @@ stop-opacity: 0.5;}
 			controls.autoRotateSpeed = 0.1;
 			controls.enablePan = false;
 			controls.enableZoom = false;
-			controls.enableRotate = false;
+			controls.enableRotate = true;
+			controls.rotateSpeed = 0.5;
 			controls.maxPolarAngle = Math.PI / 2;
 			controls.minPolarAngle = Math.PI / 2;
 
