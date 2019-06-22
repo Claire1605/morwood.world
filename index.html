@@ -216,12 +216,16 @@ stop-opacity: 0.5;}
 		transform-style: preserve-3d;
 		perspective: 1000px;
 		border-radius: 5px;
+		
+		box-shadow: 10px 10px 20px #33003388;
 				
 		background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
 		background-size: 400% 400%;
 		-webkit-animation: Gradient 15s ease infinite;
 		-moz-animation: Gradient 15s ease infinite;
 		animation: Gradient 15s ease infinite;
+		
+		transform: rotateZ(1.5deg);
 	}
 
 	#leftPage{
@@ -256,6 +260,20 @@ stop-opacity: 0.5;}
     transform: rotateY(0);
 	border-radius: 1px 5px 5px 1px;
     border: 7px double #6622bb;
+	}
+	
+	.cardTexture{
+	-webkit-mask-image: url('window.png');
+	mask-image: url('window.png');
+	background-image: url('paperTex04.png');
+	width: 190px;
+	height: 396px;
+	opacity: 0.6;
+	top: -6px;
+	position: absolute;
+	left: -5px;
+	border-radius: 1px 5px 5px 1px;
+    border: 7px double #6622bb00;
 	}
 	
 	#leftPage.open {
@@ -330,8 +348,8 @@ stop-opacity: 0.5;}
 		</div>	
 				
 				
-		<span id="leftPage" ></span>
-		<span id="rightPage" ></span>
+		<span id="leftPage" ><div class="cardTexture"></div></span>
+		<span id="rightPage" ><div class="cardTexture"></div></span>
 	</div>
 	
 
