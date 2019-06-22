@@ -9,31 +9,12 @@
 	</head>
 
 	<body>
-	
-	<div style="display: inline;">
-	<h3 class="logoBlog">CLAIRE & JAMES</h3>
-	<br>
-	<h3 class="logoBlog">MORLEY   WOOD</h3>
-	<br><br>
-	<h3 class="logoBlog">MORWOOD</h3>
-	</div>
-	
 		<script src="three.min.js"></script>
 		<script src="MTLLoader.js"></script>
 		<script src="OBJLoader.js"></script>
 		<script src="OrbitControls.js"></script>
-
 		
-	<div style="display: inline;">
-	<h3 class="logoBlog">05/05/2020</h3>
-	<br>
-	<h3 class="logoBlog">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</h3>
-	<br><br>
-	<h3 class="logoBlog">More information and</h3>
-	<br>
-	<h3 class="logoBlog">RSVP here</h3>
-	</div>
-	
+		
 		<style>
 			body {
 				width: 100wh;
@@ -94,14 +75,37 @@
 			}
 		</style>
 
+		<div style="display: inline;">
+	<h3 class="logoBlog">CLAIRE & JAMES</h3>
+	<br>
+	<h3 class="logoBlog">MORLEY   WOOD</h3>
+	<br><br>
+	<h3 class="logoBlog">MORWOOD</h3>
+	</div>
+	<br><br>
+		
+	<div id="tree">
+	</div>	
+
+	<br><br>
+	<div style="display: inline;">
+	<h3 class="logoBlog">05/05/2020</h3>
+	<br>
+	<h3 class="logoBlog">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</h3>
+	<br><br>
+	<h3 class="logoBlog">More information and</h3>
+	<br>
+	<h3 class="logoBlog">RSVP here</h3>
+	</div>
+	
 		<script>
 			var scene = new THREE.Scene();
 
 			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
  
 			var renderer = new THREE.WebGLRenderer({ alpha : true });
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+			renderer.setSize( 600, 400 );
+			document.getElementByID("tree").appendChild( renderer.domElement );
 			renderer.setClearColor( 0x000000, 0 );
 
 			camera.position.z = 5;
