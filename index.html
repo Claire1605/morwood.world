@@ -93,6 +93,34 @@
 				width: 100%;
 			}
 			
+			a:link {
+				color: white;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+
+			a:visited {
+				color: white;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+
+			a:hover {
+				color: hotpink;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+
+			a:active {
+				color: turquoise;
+				text-align: center;
+				font-size: 32px;
+				width: 100%;
+			}
+			
 			.starryBgrd {
 				background-repeat: repeat;
 				background-image: url('Stars01.jpg');
@@ -105,28 +133,94 @@
 				0%   {background-image: url('Stars01.jpg');}
 				50%  {background-image: url('Stars02.jpg');}
 				100%   {background-image: url('Stars01.jpg');}
-}
+			}
+			
+			
+.morwood { fill: transparent; stroke: black; stroke-width: 2;  }
+
+.morwood .moveM { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveO1 { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveR { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveW { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveO2 { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveO3 { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+.morwood .moveD { transform: translateX(0px); 
+    transition: all 1s ease-out; }
+
+.morwood:hover .moveM { transform: translateX(-150px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveO1 { transform: translateX(-100px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveR { transform: translateX(-50px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveW { transform: translateX(0px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveO2 { transform: translateX(50px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveO3 { transform: translateX(100px); stroke: white;  stroke-width: 5; }
+.morwood:hover .moveD { transform: translateX(150px); stroke: white;  stroke-width: 5; }
+
+.morwood .moveMbg { transform: translateX(0px); fill: white; stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveO1bg { transform: translateX(0px); fill: white; stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveRbg { transform: translateX(0px); fill: white;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveWbg { transform: translateX(0px); fill: white;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveO2bg { transform: translateX(0px); fill: white;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveO3bg { transform: translateX(0px); fill: white;  stroke: transparent;
+    transition: all 1s ease-out; }
+.morwood .moveDbg { transform: translateX(0px); fill: white;  stroke: transparent;
+    transition: all 1s ease-out; }
+
+.morwood:hover .moveMbg { transform: translateX(-150px); fill:transparent; }
+.morwood:hover .moveO1bg { transform: translateX(-100px); fill:transparent; }
+.morwood:hover .moveRbg { transform: translateX(-50px); fill:transparent; }
+.morwood:hover .moveWbg { transform: translateX(0px); fill:transparent; }
+.morwood:hover .moveO2bg { transform: translateX(50px); fill:transparent; }
+.morwood:hover .moveO3bg { transform: translateX(100px); fill:transparent; }
+.morwood:hover .moveDbg { transform: translateX(150px); fill:transparent; }
 		</style>
 
 	<div style="display: inline;">
 	<br><br>
-	<h3 class="mainText">CLAIRE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JAMES</h3>
+	<h3 class="mainText">CLAIRE MORLEY</h3>
 	<h3 class="mainText">& </h3>
-	<h3 class="mainText">MORLEY &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; WOOD</h3>
-	<br><br>
-	<h3 class="mainText">MORWOOD</h3>
+	<h3 class="mainText">JAMES WOOD</h3>
+	<div class="mainText">
+	<svg class="morwood" width="750" height="150">
+
+<path class="moveMbg" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
+<path class="moveO1bg" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveRbg" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
+<path class="moveWbg" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
+<path class="moveO2bg" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveO3bg" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveDbg" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+
+<path class="moveM" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
+<path class="moveO1" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveR" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
+<path class="moveW" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
+<path class="moveO2" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveO3" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+<path class="moveD" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+
+</svg>
+</div>
 	</div>
 	<br><br>
 		
 	<div id="tree" class="treeBox">
 	</div>	
 
-	<br><br>
+	<br>
 	<div style="display: inline;">
 	<h3 class="mainText">05/05/2020</h3>
-	<br>
-	<h3 class="mainText">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</h3>
-	<br>
+	<h3 class="mainText"><a href="http://www.woodlandtipis.co.uk/" target="_blank">The Enchanted Forest (Woodland Tipi and Yurts HR2 6QD)</a></h3>
 	<h3 class="mainText">More information and</h3>
 	<h3 class="mainText">RSVP here</h3>
 	<br><br><br>
