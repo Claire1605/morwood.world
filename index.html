@@ -443,7 +443,18 @@ stop-opacity: 0.5;}
 
 			camera.position.z = -0.55;
  
-			
+			var controls = new THREE.OrbitControls(camera, renderer.domElement);
+			controls.enableDamping = true;
+			controls.dampingFactor = 0.25;
+			controls.autoRotate = true;
+			controls.autoRotateSpeed = 0.1;
+			controls.enablePan = false;
+			controls.enableZoom = false;
+			controls.enableRotate = true;
+			controls.rotateSpeed = 0.5;
+			controls.maxPolarAngle = Math.PI / 2;
+			controls.minPolarAngle = Math.PI / 2;
+
 			var keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 2.0);
 			keyLight.position.set(-100, 0, 100);
  
@@ -460,7 +471,7 @@ stop-opacity: 0.5;}
 			scene.add(backLight);
 			scene.add(ambientlight);
 
-			var tree;
+			
 			var mtlLoader = new THREE.MTLLoader();
 			mtlLoader.setResourcePath('/');
 			mtlLoader.setPath('/');
@@ -473,22 +484,9 @@ stop-opacity: 0.5;}
 				objLoader.setPath('/');
 				objLoader.load('tree.obj', function (object) {
 					object.position.y = -0.25;
-					tree = object;
 					scene.add(object);
 				});
-				
- var controls = new THREE.OrbitControls(tree, renderer.domElement);
-			controls.enableDamping = true;
-			controls.dampingFactor = 0.25;
-			controls.autoRotate = true;
-			controls.autoRotateSpeed = 0.1;
-			controls.enablePan = false;
-			controls.enableZoom = false;
-			controls.enableRotate = true;
-			controls.rotateSpeed = 0.5;
-			controls.maxPolarAngle = Math.PI / 2;
-			controls.minPolarAngle = Math.PI / 2;
-
+ 
 			});
 
 			var update = function () {
