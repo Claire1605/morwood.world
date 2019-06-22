@@ -96,6 +96,8 @@
 			.morwoodLogo{
 				text-align: center;
 				margin: auto;
+				width: 750px;
+				height: 150px;
 			}
 			
 			a:link {
@@ -141,7 +143,7 @@
 			}
 			
 			
-.morwood { fill: transparent; stroke: black; stroke-width: 2;  }
+.morwood { fill: transparent; stroke: white; stroke-width: 5;}
 
 .morwood .moveM { transform: translateX(0px); 
     transition: all 1s ease-out; }
@@ -158,6 +160,28 @@
 .morwood .moveD { transform: translateX(0px); 
     transition: all 1s ease-out; }
 
+.morwood .gradient {
+  stroke: transparent;
+  fill: url("#gradientBackground");
+  clip-path: url("#clipGroup");
+  }
+  
+.morwood .gradientBG1 {
+stop-opacity: 1;
+    transition: all 1s ease-out;
+  }
+
+.morwood .gradientBG2 {
+stop-opacity: 1;
+    transition: all 1s ease-out;
+  }
+  
+.morwood:hover .gradientBG1 { 
+stop-opacity: 0.5; }
+
+.morwood:hover .gradientBG2 { 
+stop-opacity: 0.5;}
+  
 .morwood:hover .moveM { transform: translateX(-150px); stroke: white;  stroke-width: 5; }
 .morwood:hover .moveO1 { transform: translateX(-100px); stroke: white;  stroke-width: 5; }
 .morwood:hover .moveR { transform: translateX(-50px); stroke: white;  stroke-width: 5; }
@@ -166,19 +190,20 @@
 .morwood:hover .moveO3 { transform: translateX(100px); stroke: white;  stroke-width: 5; }
 .morwood:hover .moveD { transform: translateX(150px); stroke: white;  stroke-width: 5; }
 
-.morwood .moveMbg { transform: translateX(0px); fill: white; stroke: transparent;
+
+.morwood .moveMbg { transform: translateX(0px); fill: transparent; stroke: transparent;
     transition: all 1s ease-out; }
-.morwood .moveO1bg { transform: translateX(0px); fill: white; stroke: transparent;
+.morwood .moveO1bg { transform: translateX(0px); fill: transparent; stroke: transparent;
     transition: all 1s ease-out; }
-.morwood .moveRbg { transform: translateX(0px); fill: white;  stroke: transparent;
+.morwood .moveRbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
     transition: all 1s ease-out; }
-.morwood .moveWbg { transform: translateX(0px); fill: white;  stroke: transparent;
+.morwood .moveWbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
     transition: all 1s ease-out; }
-.morwood .moveO2bg { transform: translateX(0px); fill: white;  stroke: transparent;
+.morwood .moveO2bg { transform: translateX(0px); fill: transparent;  stroke: transparent;
     transition: all 1s ease-out; }
-.morwood .moveO3bg { transform: translateX(0px); fill: white;  stroke: transparent;
+.morwood .moveO3bg { transform: translateX(0px); fill: transparent;  stroke: transparent;
     transition: all 1s ease-out; }
-.morwood .moveDbg { transform: translateX(0px); fill: white;  stroke: transparent;
+.morwood .moveDbg { transform: translateX(0px); fill: transparent;  stroke: transparent;
     transition: all 1s ease-out; }
 
 .morwood:hover .moveMbg { transform: translateX(-150px); fill:transparent; }
@@ -198,6 +223,18 @@
 	<div class="morwoodLogo">
 	<svg class="morwood" width="750" height="150">
 
+<linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop class="gradientBG1" offset="0%" stop-color="pink" >
+      <animate attributeName="stop-color" values="pink;red;pink" dur="2s" repeatCount="indefinite"  /> 
+      </stop>
+      <stop class="gradientBG2" offset="100%" stop-color="blue" >
+      <animate attributeName="stop-color" values="blue;cyan;blue" dur="2s" repeatCount="indefinite"  /> 
+      </stop>
+</linearGradient>
+    
+<rect x="0" y="0" width="750" height="150" class="gradient"></rect>
+
+<clipPath id="clipGroup">
 <path class="moveMbg" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
 <path class="moveO1bg" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
 <path class="moveRbg" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
@@ -205,6 +242,7 @@
 <path class="moveO2bg" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
 <path class="moveO3bg" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
 <path class="moveDbg" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+</clipPath>
 
 <path class="moveM" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
 <path class="moveO1" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
@@ -213,6 +251,7 @@
 <path class="moveO2" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
 <path class="moveO3" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
 <path class="moveD" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+
 
 </svg>
 </div>
