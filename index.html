@@ -11,7 +11,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet">
 	</head>
 
-	<body class="starryBgrd">
+	<body>
 		<script src="three.min.js"></script>
 		<script src="MTLLoader.js"></script>
 		<script src="OBJLoader.js"></script>
@@ -26,8 +26,59 @@
 				background-color: #552f91;
 				font-family: 'Calligraffitti', cursive;
 				min-width: 750px;
+				position: relative;
+			}
+			
+			#greenBgrd{
+				position: absolute;
+				z-index: -1;
+				margin: 0;
+				padding 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-repeat: repeat;
+				background-image: url('Stars01-green.jpg');
+				animation-name: starsGreen;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
+				opacity: 0;
+				transition: all 1s ease-out; 
+			}
+						
+			#greenBgrd.fadeIn{
+				opacity: 1;
+			}
+			
+			#purpleBgrd{
+				position: absolute;
+				margin: 0;
+				padding 0;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: -2;
+				background-repeat: repeat;
+				background-image: url('Stars01.jpg');
+				animation-name: stars;
+				animation-duration: 1s;
+				animation-iteration-count: infinite;
 			}
 
+			@keyframes stars {
+				0%   {background-image: url('Stars01.jpg');}
+				50%  {background-image: url('Stars02.jpg');}
+				100%   {background-image: url('Stars01.jpg');}
+			}
+			
+			@keyframes starsGreen {
+				0%   {background-image: url('Stars01-green.jpg');}
+				50%  {background-image: url('Stars02-green.jpg');}
+				100%   {background-image: url('Stars01-green.jpg');}
+			}
+			
 			@-webkit-keyframes Gradient {
 				0% {
 					background-position: 0% 50%
@@ -84,55 +135,62 @@
 				text-align: center;
 				font-size: 32px;
 				width: 100%;
-			}
+				}
+				
+			#mainTextBlock{
+				opacity: 0;
+				color: #ffffff00;
+				transition: all 1s ease-out; 
+				}
 			
+			#mainTextBlock.fadeIn{
+				opacity: 1;
+				color: #ffffffff;
+			}
+
 			.morwoodLogo{
 				
 				width: 100%;
 				margin: auto;
 			}
 			
-			a:link {
-				color: white;
+			#siteLink {
+			 opacity: 0;
+			 color: white;
+			transition: all 1s ease-out; 
+			}
+			
+			#siteLink:link {
 				text-align: center;
 				font-size: 32px;
 				width: 100%;
 			}
 
-			a:visited {
-				color: white;
+			#siteLink:visited {
 				text-align: center;
 				font-size: 32px;
 				width: 100%;
+				color: white;
 			}
 
-			a:hover {
+			#siteLink:hover {
 				color: hotpink;
 				text-align: center;
 				font-size: 32px;
 				width: 100%;
 			}
 
-			a:active {
+			#siteLink:active {
 				color: turquoise;
 				text-align: center;
 				font-size: 32px;
 				width: 100%;
 			}
 			
-			.starryBgrd {
-				background-repeat: repeat;
-				background-image: url('Stars01.jpg');
-				animation-name: stars;
-				animation-duration: 1s;
-				animation-iteration-count: infinite;
-			}   
-			
-			@keyframes stars {
-				0%   {background-image: url('Stars01.jpg');}
-				50%  {background-image: url('Stars02.jpg');}
-				100%   {background-image: url('Stars01.jpg');}
+			#siteLink.fadeIn {
+			    opacity: 1;
 			}
+			
 			
 			
 .morwood { fill: transparent; stroke: white; stroke-width: 5; position: relative; left: 50%; transform: translateX(-50%);}
@@ -296,13 +354,11 @@ stop-opacity: 0.5;}
 	background-color: #e5ffff;
 	}
 	
-		</style>
-
-	<div style="display: inline;">
-	<br><br>
-	<h3 class="mainText">CLAIRE MORLEY</h3>
-	<h3 class="mainText">& </h3>
-	<h3 class="mainText">JAMES WOOD</h3>
+	</style>
+	<span id="greenBgrd"></span>
+	<span id="purpleBgrd"></span>
+	
+	
 	<div class="morwoodLogo">
 	<svg class="morwood" width="750" height="150" >
 
@@ -337,8 +393,7 @@ stop-opacity: 0.5;}
 
 
 </svg>
-</div>
-	</div>
+	
 	<br><br>
 		
   
@@ -352,15 +407,21 @@ stop-opacity: 0.5;}
 		<span id="rightPage" ><div class="cardTexture"></div></span>
 	</div>
 	
+	<div style="display: inline;" id="mainTextBlock">
+		<br>
+		<h3 class="mainText">CLAIRE MORLEY &nbsp & &nbsp&nbsp JAMES WOOD</h3>
 
-	<br>
-	<div style="display: inline;">
-	<h3 class="mainText">05/05/2020</h3>
-	<h3 class="mainText"><a href="http://www.woodlandtipis.co.uk/" target="_blank">The Enchanted Forest (Woodland Tipis and Yurts HR2 6QD)</a></h3>
-	<h3 class="mainText">More information and</h3>
-	<h3 class="mainText">RSVP here</h3>
-	<br><br><br>
+		<div style="display: inline;">
+		<h3 class="mainText">05/05/2020</h3>
+		<h3 class="mainText"><a id="siteLink" href="http://www.woodlandtipis.co.uk/" target="_blank">The Enchanted Forest (Woodland Tipis and Yurts HR2 6QD)</a></h3>
+		<h3 class="mainText">More information and</h3>
+		<h3 class="mainText">RSVP here</h3>
+		<br>
+		</div>
 	</div>
+	
+
+
 	
 		<script>
 			var scene = new THREE.Scene();
@@ -461,6 +522,11 @@ stop-opacity: 0.5;}
 			styleRight.appendChild(document.createTextNode('#card:hover #rightPage { transform: rotateY(160deg); background-color: #add8e6;}'));
 			styleRight.setAttribute('id', 'overrideHoverRight');
 			document.body.appendChild(styleRight);
+			
+			document.getElementById('greenBgrd').setAttribute('class', 'fadeIn');
+			document.getElementById('mainTextBlock').setAttribute('class', 'fadeIn');
+			document.getElementById('siteLink').setAttribute('class', 'fadeIn');
+			
 		}
 		
 		if (justClicked == true)
@@ -476,6 +542,11 @@ stop-opacity: 0.5;}
 			leftOpen = false;
 			leftPage.setAttribute('class', '');
 			document.getElementById('overrideHoverLeft').remove();
+			
+			if (rightOpen == false)
+			{
+			document.getElementById('greenBgrd').setAttribute('class', '');
+			}
 		}
 	});
 
@@ -486,6 +557,11 @@ stop-opacity: 0.5;}
 			rightOpen = false;
 			rightPage.setAttribute('class', '');
 			document.getElementById('overrideHoverRight').remove();
+			
+			if (leftOpen == false)
+			{
+			document.getElementById('greenBgrd').setAttribute('class', '');
+			}
 		}
 	});
 }());
