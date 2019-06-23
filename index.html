@@ -455,17 +455,17 @@ stop-opacity: 0.5;}
 			controls.maxPolarAngle = Math.PI / 2;
 			controls.minPolarAngle = Math.PI / 2;
 
-			var keyLight = new THREE.DirectionalLight(new THREE.Color('hsl(30, 100%, 75%)'), 2.0);
+			var keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
 			keyLight.position.set(-100, 0, 100);
  
-			var fillLight = new THREE.DirectionalLight(new THREE.Color('hsl(240, 100%, 75%)'), 1.25);
+			var fillLight = new THREE.DirectionalLight(0xffffff, 1.0);
 			fillLight.position.set(100, 0, 100);
  
-			var backLight = new THREE.DirectionalLight(0xffffff, 2.0);
+			var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
 			backLight.position.set(100, 0, -100).normalize();
  
-			var ambientLight = new THREE.AmbientLight(0xccaacc);
-
+			var ambientLight = new THREE.AmbientLight(0xffffff);
+			
 			var lightGroup = new THREE.Group();
 			
 			lightGroup.add(keyLight);
@@ -478,7 +478,6 @@ stop-opacity: 0.5;}
 			scene.add(backLight);
 			scene.add(ambientLight);
 
-			
 			var mtlLoader = new THREE.MTLLoader();
 			mtlLoader.setResourcePath('/');
 			mtlLoader.setPath('/');
@@ -488,7 +487,6 @@ stop-opacity: 0.5;}
  
 				var objLoader = new THREE.OBJLoader();
 				objLoader.setMaterials(materials);
-				objLoader.setTexturePath('/');
 				objLoader.setPath('/');
 				objLoader.load('tree.obj', function (object) {
 					object.position.y = -0.25;
