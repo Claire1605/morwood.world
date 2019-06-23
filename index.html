@@ -489,6 +489,8 @@ stop-opacity: 0.5;}
 				objLoader.setMaterials(materials);
 				objLoader.setPath('/');
 				objLoader.load('tree.obj', function (object) {
+				
+					treeModel = object;
 					object.position.y = -0.25;
 					scene.add(object);
 				});
