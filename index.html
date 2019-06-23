@@ -199,7 +199,12 @@
 			    opacity: 1;
 			}
 			
-			
+			.not-active {
+			  pointer-events: none;
+			 
+			  text-decoration: none;
+			  color: white;
+			}
 			
 .morwood { fill: transparent; stroke: white; stroke-width: 5; position: relative; left: 50%; transform: translateX(-50%);}
 
@@ -369,45 +374,63 @@ opacity: 0.8;
 	background-color: #e5ffff;
 	}
 	
+	.imgcenter {
+	  display: block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 50%;
+	}
+	
+	#imgcenterBlock{
+		opacity: 0;
+		filter: alpha(opacity=0); /* For IE8 and earlier */
+		color: #ffffff00;
+		transition: all 1s ease-out; 
+		}
+	
+	#imgcenterBlock.fadeIn{
+		opacity: 1;
+		filter: alpha(opacity=100); /* For IE8 and earlier */
+		color: #ffffffff;
+	}
+	
 	</style>
 	<span id="greenBgrd"></span>
 	<span id="purpleBgrd"></span>
 	
-	
 	<div class="morwoodLogo">
 	<svg id="morwoodLogoID" class="morwood" width="750" height="150" >
 
-<linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop class="gradientBG1" offset="0%" stop-color="pink" >
-      <animate attributeName="stop-color" values="pink;red;pink" dur="2s" repeatCount="indefinite"  /> 
-      </stop>
-      <stop class="gradientBG2" offset="100%" stop-color="blue" >
-      <animate attributeName="stop-color" values="blue;cyan;blue" dur="2s" repeatCount="indefinite"  /> 
-      </stop>
-</linearGradient>
-    
-<rect x="0" y="0" width="750" height="150" class="gradient"></rect>
+		<linearGradient id="gradientBackground" x1="0%" y1="0%" x2="100%" y2="0%">
+			  <stop class="gradientBG1" offset="0%" stop-color="pink" >
+			  <animate attributeName="stop-color" values="pink;red;pink" dur="2s" repeatCount="indefinite"  /> 
+			  </stop>
+			  <stop class="gradientBG2" offset="100%" stop-color="blue" >
+			  <animate attributeName="stop-color" values="blue;cyan;blue" dur="2s" repeatCount="indefinite"  /> 
+			  </stop>
+		</linearGradient>
+			
+		<rect x="0" y="0" width="750" height="150" class="gradient"></rect>
 
-<clipPath id="clipGroup">
-<path class="moveMbg" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
-<path class="moveO1bg" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
-<path class="moveRbg" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
-<path class="moveWbg" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
-<path class="moveO2bg" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
-<path class="moveO3bg" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
-<path class="moveDbg" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
-</clipPath>
+		<clipPath id="clipGroup">
+		<path class="moveMbg" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
+		<path class="moveO1bg" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+		<path class="moveRbg" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
+		<path class="moveWbg" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
+		<path class="moveO2bg" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+		<path class="moveO3bg" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+		<path class="moveDbg" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+		</clipPath>
 
-<path class="moveM" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
-<path class="moveO1" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
-<path class="moveR" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
-<path class="moveW" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
-<path class="moveO2" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
-<path class="moveO3" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
-<path class="moveD" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
+		<path class="moveM" d="m175,125 v-50 a50,50 0 0 1 100,0 v50 h-100 z" />
+		<path class="moveO1" d="m225,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+		<path class="moveR" d="m275,125 v-100 h50 a50,50 0 0 1 50,50 v50 h-100 z" />
+		<path class="moveW" d="m325,75 a50,50 0 0 0 100,0 v-50 h-100 v50 z" />
+		<path class="moveO2" d="m375,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+		<path class="moveO3" d="m425,75 a50,50 0 0 1 100,0 a50,50 0 0 1 -100,0 z" />
+		<path class="moveD" d="m475,125 v-100 h50 a50,50 0 0 1 0,100 h-50 z" />
 
-
-</svg>
+	</svg>
 	
 	<br><br>
 		
@@ -416,8 +439,7 @@ opacity: 0.8;
  
 		<div id="tree" class="treeBox">
 		</div>	
-				
-				
+					
 		<span id="leftPage" ><div class="cardTexture"></div></span>
 		<span id="rightPage" ><div class="cardTexture"></div></span>
 	</div>
@@ -425,21 +447,23 @@ opacity: 0.8;
 	<div style="display: inline;" id="mainTextBlock">
 		<br>
 		<h3 class="mainText">CLAIRE MORLEY &nbsp & &nbsp&nbsp JAMES WOOD</h3>
-
 		<div style="display: inline;">
 		<h3 class="mainText">05/05/2020</h3>
-		<h3 class="mainText"><a id="siteLink" href="http://www.woodlandtipis.co.uk/" target="_blank">The Enchanted Forest (Woodland Tipis and Yurts HR2 6QD)</a></h3>
-		<h3 class="mainText">More information and</h3>
-		<h3 class="mainText">RSVP here</h3>
+		<h3 class="mainText"><a id="siteLink" href="http://www.woodlandtipis.co.uk/" target="_blank" class="not-active">The Enchanted Forest (Woodland Tipis and Yurts HR2 6QD)</a></h3>
 		<br>
 		</div>
 	</div>
 	
-
-
+	<div id="imgcenterBlock">
+	<h3 class="mainText">
+		<a id="siteLink" href="https://forms.gle/n6r5QxzuKfwEFXNh9" target="_blank" class="not-active"><img class="imgcenter" src="textures/rsvp.png" style="width:328px;"></img></a>
+		</h3>
+	</div>
 	
 		<script>
 			var placeholderMat;
+			var bird1Model;
+			var bird2Model;
 			
 			var scene = new THREE.Scene();
 
@@ -538,6 +562,44 @@ opacity: 0.8;
 				});
  
 			});
+			
+			var mtlLoader4 = new THREE.MTLLoader();
+			mtlLoader4.setResourcePath('/');
+			mtlLoader4.setPath('/');
+			mtlLoader4.load('birds.mtl', function (materials) {
+ 
+				materials.preload();
+ 
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials(materials);
+				objLoader.setPath('/');
+				objLoader.load('birds.obj', function (object) {
+				
+					bird1Model = object;
+					object.position.y = -0.25;
+					scene.add(object);
+				});
+ 
+			});
+			
+			var mtlLoader5 = new THREE.MTLLoader();
+			mtlLoader5.setResourcePath('/');
+			mtlLoader5.setPath('/');
+			mtlLoader5.load('birds2.mtl', function (materials) {
+ 
+				materials.preload();
+ 
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials(materials);
+				objLoader.setPath('/');
+				objLoader.load('birds.obj', function (object) {
+				
+					bird2Model = object;
+					object.position.y = -0.25;
+					scene.add(object);
+				});
+ 
+			});
 
 			var update = function () {
 				requestAnimationFrame( update );
@@ -548,6 +610,8 @@ opacity: 0.8;
 			};
  
 			update();
+			
+		
 		</script>
 
 		<script>
@@ -584,6 +648,7 @@ opacity: 0.8;
 			
 			document.getElementById('greenBgrd').setAttribute('class', 'fadeIn');
 			document.getElementById('mainTextBlock').setAttribute('class', 'fadeIn');
+			document.getElementById('imgcenterBlock').setAttribute('class', 'fadeIn');
 			document.getElementById('siteLink').setAttribute('class', 'fadeIn');
 			document.getElementById('morwoodLogoID').setAttribute('class', 'morwood expand');
 			
