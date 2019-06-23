@@ -466,6 +466,13 @@ stop-opacity: 0.5;}
  
 			var ambientlight = new THREE.AmbientLight(0xccaacc);
 
+			var lightGroup = new THREE.Group();
+			
+			lightGroup.add(keyLight);
+			lightGroup.add(fillLight);
+			lightGroup.add(backLight);
+			lightGroup.add(ambientLight);
+			
 			scene.add(keyLight);
 			scene.add(fillLight);
 			scene.add(backLight);
@@ -481,6 +488,7 @@ stop-opacity: 0.5;}
  
 				var objLoader = new THREE.OBJLoader();
 				objLoader.setMaterials(materials);
+				objLoader.setTexturePath('/');
 				objLoader.setPath('/');
 				objLoader.load('tree.obj', function (object) {
 					object.position.y = -0.25;
@@ -492,6 +500,7 @@ stop-opacity: 0.5;}
 			var update = function () {
 				requestAnimationFrame( update );
 				
+				lightGroup.rotation.y -= 0.1;
 				controls.update();
 
 				renderer.render(scene, camera);
