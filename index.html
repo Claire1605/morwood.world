@@ -220,8 +220,10 @@
 
 .morwood .gradient {
   stroke: transparent;
-  fill: url("#gradientBackground");
+  fill: cyan;
   clip-path: url("#clipGroup");
+  transition: all 1s ease-out;
+  opacity: 0.5;
   }
   
 .morwood .gradientBG1 {
@@ -239,6 +241,11 @@ stop-opacity: 0.5; }
 
 .morwood.expand .gradientBG2 { 
 stop-opacity: 0.5;}
+
+.morwood.expand .gradient{
+fill: pink;
+opacity: 0.8;
+}
   
 .morwood.expand .moveM { transform: translateX(-150px); stroke: white;  stroke-width: 5; }
 .morwood.expand .moveO1 { transform: translateX(-100px); stroke: white;  stroke-width: 5; }
@@ -285,7 +292,7 @@ stop-opacity: 0.5;}
 		
 		box-shadow: 10px 10px 20px #33003388;
 				
-		background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
+		background: linear-gradient(-45deg, #9efaff, #ff9ec8);
 		background-size: 400% 400%;
 		-webkit-animation: Gradient 15s ease infinite;
 		-moz-animation: Gradient 15s ease infinite;
@@ -432,6 +439,8 @@ stop-opacity: 0.5;}
 
 	
 		<script>
+			var placeholderMat;
+			
 			var scene = new THREE.Scene();
 
 			var camera = new THREE.PerspectiveCamera( 75, 1, 0.1, 1000 );
@@ -455,29 +464,24 @@ stop-opacity: 0.5;}
 			controls.maxPolarAngle = Math.PI / 2;
 			controls.minPolarAngle = Math.PI / 2;
 
-			var keyLight = new THREE.DirectionalLight(0xffffff, 1.0);
-			keyLight.position.set(-100, 0, 100);
- 
-			var fillLight = new THREE.DirectionalLight(0xffffff, 1.0);
-			fillLight.position.set(100, 0, 100);
- 
-			var backLight = new THREE.DirectionalLight(0xffffff, 1.0);
-			backLight.position.set(100, 0, -100).normalize();
- 
 			var ambientLight = new THREE.AmbientLight(0xffffff);
 			
-			var lightGroup = new THREE.Group();
-			
-			lightGroup.add(keyLight);
-			lightGroup.add(fillLight);
-			lightGroup.add(backLight);
-			lightGroup.add(ambientLight);
-			
-			scene.add(keyLight);
-			scene.add(fillLight);
-			scene.add(backLight);
 			scene.add(ambientLight);
 
+			/*for (var leafBundle = 0; leafBundle < 8; leafBundle++)
+			{
+			var geometry = new THREE.SphereGeometry( Math.random() * 0.12 + 0.05, 32, 32 );
+			var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+			material.transparent = true;
+			material.opacity = Math.random() * 0.5 + 0.2;
+			var sphere = new THREE.Mesh( geometry, material );
+			sphere.position.y = Math.random() * 0.1 + 0.1;
+			sphere.position.z = Math.random() * 0.4 - 0.2;
+			sphere.position.x = Math.random() * 0.4 - 0.2;
+			scene.add( sphere );
+			}*/
+			
+			
 			var mtlLoader = new THREE.MTLLoader();
 			mtlLoader.setResourcePath('/');
 			mtlLoader.setPath('/');
@@ -496,11 +500,48 @@ stop-opacity: 0.5;}
 				});
  
 			});
+			
+			var mtlLoader2 = new THREE.MTLLoader();
+			mtlLoader2.setResourcePath('/');
+			mtlLoader2.setPath('/');
+			mtlLoader2.load('leafbundle.mtl', function (materials) {
+ 
+				materials.preload();
+ 
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials(materials);
+				placeholderMat = materials;
+				objLoader.setPath('/');
+				objLoader.load('leafbundle.obj', function (object) {
+				
+					object.position.y = -0.25;
+					scene.add(object);
+				});
+ 
+			});
+			
+			var mtlLoader3 = new THREE.MTLLoader();
+			mtlLoader3.setResourcePath('/');
+			mtlLoader3.setPath('/');
+			mtlLoader3.load('grass.mtl', function (materials) {
+ 
+				materials.preload();
+ 
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials(materials);
+				placeholderMat = materials;
+				objLoader.setPath('/');
+				objLoader.load('grass.obj', function (object) {
+				
+					object.position.y = -0.25;
+					scene.add(object);
+				});
+ 
+			});
 
 			var update = function () {
 				requestAnimationFrame( update );
 				
-				lightGroup.rotation.y -= 0.1;
 				controls.update();
 
 				renderer.render(scene, camera);

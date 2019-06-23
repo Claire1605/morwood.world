@@ -513,7 +513,7 @@ THREE.MTLLoader.MaterialCreator.prototype = {
 		}
 
 		this.materials[ materialName ] = new THREE.MeshBasicMaterial( params );
-		this.materials[ materialName ].color = new THREE.Color( 0xffffff );
+	
 		return this.materials[ materialName ];
 
 	},
