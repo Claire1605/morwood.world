@@ -1,11 +1,14 @@
 # Blender MTL File: 'tree.blend'
 # Material Count: 1
 
-newmtl None
-Ns 0
-Ka 0.900000 0.900000 0.900000
-Kd 1.000000 1.000000 1.000000
-Ks 0.8 0.8 0.8
-d 1.000000
-illum 2
-map_Kd textures\\birds01outline.png
+newmtl Birds-New
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 0.000000
+illum 1
+map_Kd textures\\birds01.png
+map_d textures\\birds01-alpha.png

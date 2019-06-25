@@ -464,6 +464,9 @@ opacity: 0.8;
 			var placeholderMat;
 			var bird1Model;
 			var bird2Model;
+
+			var birdA = true;
+			var i = 0;
 			
 			var scene = new THREE.Scene();
 
@@ -520,6 +523,7 @@ opacity: 0.8;
 				
 					treeModel = object;
 					object.position.y = -0.25;
+					object.rotation.y = THREE.Math.degToRad(140);
 					scene.add(object);
 				});
  
@@ -539,6 +543,7 @@ opacity: 0.8;
 				objLoader.load('leafbundle.obj', function (object) {
 				
 					object.position.y = -0.25;
+					object.rotation.y = THREE.Math.degToRad(140);
 					scene.add(object);
 				});
  
@@ -558,11 +563,35 @@ opacity: 0.8;
 				objLoader.load('grass.obj', function (object) {
 				
 					object.position.y = -0.25;
+					object.rotation.y = THREE.Math.degToRad(140);
 					scene.add(object);
 				});
  
 			});
 			
+			var birdMatA = new THREE.MeshBasicMaterial({
+			side: THREE.DoubleSide,
+			transparent: true, // key to cutout texture
+			map: THREE.ImageUtils.loadTexture('textures/birds01.png')
+			});
+			birdMatA.alphaTest = 0;
+			
+			var birdMatB = new THREE.MeshBasicMaterial({
+			side: THREE.DoubleSide,
+			transparent: true, // key to cutout texture
+			map: THREE.ImageUtils.loadTexture('textures/birds02.png')
+			});
+			birdMatB.alphaTest = 0;
+			
+			var geometry = new THREE.PlaneGeometry( 0.3, 0.3, 1 );
+			var plane = new THREE.Mesh( geometry, birdMatA );
+			plane.position.x = 0.04;
+			plane.position.y = 0.11;
+			plane.position.z = -0.04;
+			plane.rotation.y = THREE.Math.degToRad(315);
+			scene.add( plane );
+			
+			/*
 			var mtlLoader4 = new THREE.MTLLoader();
 			mtlLoader4.setResourcePath('/');
 			mtlLoader4.setPath('/');
@@ -599,12 +628,29 @@ opacity: 0.8;
 					scene.add(object);
 				});
  
-			});
+			});*/
 
 			var update = function () {
 				requestAnimationFrame( update );
 				
 				controls.update();
+				
+				i += 1;
+				if (i > 12)
+				{
+					i = 0;
+
+					if (birdA == true)
+					{
+						plane.material = birdMatB;
+						birdA = false;
+					}
+					else
+					{
+						plane.material = birdMatA;
+						birdA = true;
+					}
+				}
 
 				renderer.render(scene, camera);
 			};
