@@ -169,11 +169,6 @@
 			transition: all 1s ease-out; 
 			}
 			
-			#siteLinkOn {
-			 opacity: 1;
-			 color: white;
-			}
-			
 			#siteLink:link {
 				text-align: center;
 				font-size: 32px;
@@ -400,12 +395,6 @@ opacity: 0.8;
 		color: #ffffffff;
 	}
 	
-	#imgcenterBlockOn{
-		opacity: 1;
-		filter: alpha(opacity=100); /* For IE8 and earlier */
-		color: #ffffffff;
-	}
-	
 	</style>
 	<span id="greenBgrd"></span>
 	<span id="purpleBgrd"></span>
@@ -468,7 +457,7 @@ opacity: 0.8;
 	
 	<div id="imgcenterBlock">
 	<h3 class="mainText">
-		<a id="siteLink" href="https://docs.google.com/forms/d/e/1FAIpQLSfHsLzux9219o4rp3Yr2Z1ntz4sWEPvIdbMkO_AfEiV-F0vUA/viewform?usp=sf_link" target="_blank" class="not-active"><img class="imgcenter" src="textures/rsvp.png" style="width:328px;"></img></a>
+		<a id="imageLink" href="https://docs.google.com/forms/d/e/1FAIpQLSfHsLzux9219o4rp3Yr2Z1ntz4sWEPvIdbMkO_AfEiV-F0vUA/viewform?usp=sf_link" target="_blank" class="not-active"><img class="imgcenter" src="textures/rsvp.png" style="width:328px;"></img></a>
 		</h3>
 	</div>
 	
@@ -708,13 +697,9 @@ opacity: 0.8;
 			document.getElementById('mainTextBlock').setAttribute('class', 'fadeIn');
 			document.getElementById('imgcenterBlock').setAttribute('class', 'fadeIn');
 			document.getElementById('siteLink').setAttribute('class', 'fadeIn');
+			document.getElementById('imageLink').setAttribute('class', 'fadeIn');
 			document.getElementById('morwoodLogoID').setAttribute('class', 'morwood expand');
 			
-			if (navigator.userAgent.indexOf("Firefox") != -1) 
-			{
-				document.getElementById('imgcenterBlock').id = 'imgcenterBlockOn';
-				document.getElementById('siteLink').id = 'siteLinkOn';
-			}
 		}
 		
 		if (justClicked == true)
