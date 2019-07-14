@@ -169,6 +169,11 @@
 			transition: all 1s ease-out; 
 			}
 			
+			#siteLinkOn {
+			 opacity: 1;
+			 color: white;
+			}
+			
 			#siteLink:link {
 				text-align: center;
 				font-size: 32px;
@@ -390,6 +395,12 @@ opacity: 0.8;
 		}
 	
 	#imgcenterBlock.fadeIn{
+		opacity: 1;
+		filter: alpha(opacity=100); /* For IE8 and earlier */
+		color: #ffffffff;
+	}
+	
+	#imgcenterBlockOn{
 		opacity: 1;
 		filter: alpha(opacity=100); /* For IE8 and earlier */
 		color: #ffffffff;
@@ -699,6 +710,11 @@ opacity: 0.8;
 			document.getElementById('siteLink').setAttribute('class', 'fadeIn');
 			document.getElementById('morwoodLogoID').setAttribute('class', 'morwood expand');
 			
+			if (navigator.userAgent.indexOf("Firefox") != -1) 
+			{
+				document.getElementById('imgcenterBlock').id = 'imgcenterBlockOn';
+				document.getElementById('siteLink').id = 'siteLinkOn';
+			}
 		}
 		
 		if (justClicked == true)
