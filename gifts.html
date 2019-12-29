@@ -443,12 +443,20 @@ opacity: 0.8;
                 var gifts = json.feed.entry;
 
                 var data = [];
+                var rowIndex = 0;
 
-                for (var row = 0; row < data.length; row++)
+                for (var d = 0; d < data.length; d++)
                 {
-                    var cell = json.feed.entry[row]["gs$cell"];
+                    var cell = json.feed.entry[d]["gs$cell"];
                     var val = cell["$t"];
-                    data.push(val);
+
+                    if (cell.col == 1)
+                    {
+                        data.push([]);
+                        rowIndex += 1;
+                    }
+
+                    data[rowIndex].push(val);
                 }
 
                 for (var column = 0; column < gifts.length; column++)
