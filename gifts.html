@@ -16,7 +16,6 @@
 		<style>
 			body {
 				width: 100wh;
-				height: 100vh;
 				color: #fff;
 				background-color: #552f91;
 				font-family: 'Calligraffitti', cursive;
@@ -41,6 +40,9 @@
                 font-size: 30px;
                 width: 100%;
                 font-family: 'Courgette';
+                max-width: 900px;
+                margin: auto;
+                padding: 25px 0px 25px 0px;
             }
 
             .mainText2 {
@@ -50,9 +52,27 @@
                 font-family: 'Calligraffitti';
             }
 
+            .mainText3 {
+                text-align: center;
+                font-size: 35px;
+                width: 100%;
+                font-family: monospace;
+                border: 1px solid black;
+                background-color: #492a56BB;
+            }
+            
+            .mainText3 a {
+                text-align: center;
+                font-size: 35px;
+                width: 100%;
+                font-family: monospace;
+                border: 1px solid black;
+                background-color: #492a56BB;
+            }
+
             table {
                 border: 1;
-                background-color: #444444DD;
+                background-color: #492a56BB;
                 margin: auto;
                 font-size: 20px;
                 font-family: monospace;
@@ -69,11 +89,12 @@
 
             tr, td {
                 border: 1px solid black;
+                padding: 0px 10px 0px 10px;
             }
 
             a {
                 font-weight: 100;
-                font-size: 15px;
+                font-size: 20px;
                 font-family: monospace;
                 color: aqua;
             }
@@ -85,6 +106,13 @@
                 a:hover {
                     color: white;
                 }
+
+
+            .thumbnailImage {
+                width: 200px;
+                height: 100px;
+                object-fit: cover;
+            }
 
             .imgcenter {
                 display: block;
@@ -445,15 +473,32 @@
         <div id="result"></div>
 
         <h3 class="mainText">
-            You can donate using the below paypal or bank details. You can choose to gift us any amount and let us know which item you would like to donate toward by including the Pay Code in the reference. Thank you!!
-            <a href="http://www.paypal.me/jctwood">Paypal</a>
+            You can donate using James' paypal or bank details below. You can choose to gift us any amount and let us know which item you would like to donate towards by including the Pay Code in the reference. Thank you!!
         </h3>
+
+        <h3 class="mainText">
+            <h3 class="mainText3">
+                <a href="paypal.me/jctwood">paypal.me/jctwood</a>
+            </h3>
+        </h3>
+
+        <h3 class="mainText"> or
+            </h3>
+            <h3 class="mainText3">
+                Account Number: 22372835
+                Sort Code: 40-47-62
+            </h3>
 
 
 
     </div>
 	
 		<script>
+
+            document.getElementById("morwoodLogoID").addEventListener('click', function () {
+                document.getElementById('morwoodLogoID').setAttribute('class', 'morwood expand');
+            });
+
             function doData(json)
             {
                 var gifts = [[]];
@@ -481,8 +526,6 @@
                     gifts[rowIndex].push(val);
                 }
 
-                console.log(gifts);
-
                 var headers = gifts[0];
                 
                 var table = document.createElement("table");
@@ -491,9 +534,11 @@
 
                 for (var header = 0; header < headers.length; header++)
                 {
-                    var th = document.createElement("th");
-                    th.innerHTML = headers[header];
-                    tr.appendChild(th);
+                    if (header != 4) {
+                        var th = document.createElement("th");
+                        th.innerHTML = headers[header];
+                        tr.appendChild(th);
+                    }
                 }
 
                 for (var row = 1; row < gifts.length; row++)
@@ -502,15 +547,45 @@
 
                     for (var column = 0; column < gifts[row].length; column++)
                     {
-                        var cell = tr.insertCell(-1);
+                        var cell;
+
+                        var paid = gifts[row][1] === "PAID";
+
+                        if (column != 4) {
+                            cell = tr.insertCell(-1);
+                        }
 
                         if (column === 3)
                         {
-                            cell.innerHTML = "<a href='http://www." + gifts[row][column] + "' target='_blank'>" + gifts[row][column] + "</a>";
+                            cell.innerHTML = "<img class='thumbnailImage' src='" + gifts[row][column] + "'></img>";
                         }
-                        else
+                        else if (column === 0)
                         {
-                            cell.innerHTML = gifts[row][column];
+                            if (gifts[row].length > 4) {
+                                if (paid) {
+                                    cell.innerHTML = "<a style='text-decoration:line-through' href='http://www." + gifts[row][4] + "' target='_blank'>" + gifts[row][column] + "</a>";
+                                }
+                                else {
+                                    cell.innerHTML = "<a href='http://www." + gifts[row][4] + "' target='_blank'>" + gifts[row][column] + "</a>";
+                                }
+                            }
+                            else {
+                                if (paid) {
+                                    cell.innerHTML = "<span style='text-decoration:line-through' >" + gifts[row][column] + "</span>";
+                                }
+                                else {
+                                    cell.innerHTML = gifts[row][column];
+                                }
+                            }
+                        }
+                        else if (column != 4)
+                        {
+                            if (paid) {
+                                cell.innerHTML = "<span style='text-decoration:line-through'>" + gifts[row][column] + "</span>";
+                            }
+                            else {
+                                cell.innerHTML = gifts[row][column];
+                            }
                         }
                     }
                 }
