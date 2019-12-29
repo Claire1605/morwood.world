@@ -444,6 +444,13 @@ opacity: 0.8;
 
                 var data = [];
 
+                for (var row = 0; row < data.length; row++)
+                {
+                    var cell = json.feed.entry[row]["gs$cell"];
+                    var val = cell["$t"];
+                    data.push(val);
+                }
+
                 for (var column = 0; column < gifts.length; column++)
                 {
                     for (var key in gifts[column])
