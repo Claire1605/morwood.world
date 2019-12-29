@@ -440,7 +440,44 @@ opacity: 0.8;
 		<script>
             function doData(json)
             {
-                document.getElementById("result").innerHTML = json.feed.entry;
+                var gifts = json.feed.entry;
+
+                var data = [];
+
+                for (var column = 0; column < gifts.length; column++)
+                {
+                    for (var key in gifts[column])
+                    {
+                        if (data.indexOf(key) === -1)
+                        {
+                            data.push(key);
+                        }
+                    }
+                }
+
+                var table = document.createElement("table");
+
+                var tr = table.insertRow(-1);
+
+                for (var header = 0; header < data.length; header++)
+                {
+                    var th = document.createElement("th");
+                    th.innerHTML = data[i];
+                    tr.appendChild(th);
+                }
+
+                for (var column = 0; column < gifts.length; column++)
+                {
+                    tr = table.insertRow(-1);
+
+                    for (var row = 0; row < data.length; row++)
+                    {
+                        var cell = tr.insertCell(-1);
+                        cell.innerHTML = gifts[column][data[row]];
+                    }
+                }
+
+                document.getElementById("result").appendChild(table);
             }
         </script>
         <script src="https://spreadsheets.google.com/feeds/cells/1yBQTyT_HssEVU8YJTTFVZoYkVKYZjm_-M8_q1QfXFaE/1/public/values?alt=json-in-script&callback=doData"></script>
